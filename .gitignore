@@ -4,6 +4,7 @@
 *.lib
 *.*~
 *.lx64fsl
+*.*fasl
 
 # Packages #
 ############

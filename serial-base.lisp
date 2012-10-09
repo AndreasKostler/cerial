@@ -104,6 +104,12 @@
   (when (get-fd s)
     (configure-port s)))
 
+(defmethod open-serial :around ((s <serial-base>))
+  (unless (port s) (error 'serial-error :text "Port must be configured before it can be used."))
+  (when (get-fd s) (error 'serial-error :text "Port is already open"))
+  (call-next-method)
+  (configure-port s))
+
 (defmethod (setf port) :around (port (s <serial-base>))
   (typecase port
     (string (call-next-method port s))

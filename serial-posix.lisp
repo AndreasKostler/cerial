@@ -36,12 +36,6 @@
   (declare (ignore s))
   (format nil "/dev/ttyS~A" port))
 
-(defmethod open-serial :around ((s <serial-posix>))
-  (unless (port s) (error 'serial-error :text "Port must be configured before it can be used."))
-  (when (get-fd s) (error 'serial-error :text "Port is already open"))
-  (call-next-method)
-  (configure-port s))
-
 @export
 (defmethod open-serial ((s <serial-posix>))
   (let* ((fd (unistd:open
