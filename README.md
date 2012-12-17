@@ -1,3 +1,6 @@
+# Moved to bitbucket
+This repository is deprecated. Please go to https://bitbucket.org/blueswitch/cerial
+
 # CeriaL
 Mmmmh...Crunchy!
 
